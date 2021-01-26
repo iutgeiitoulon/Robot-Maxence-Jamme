@@ -12,5 +12,6 @@ int main ( void) {
     LED_ORANGE = 1;
     while(1){
         LED_BLANCHE = !LED_BLANCHE;
+    //test
     }
 }
