@@ -1,23 +1,16 @@
-/* 
- * File:   Robot.h
- * Author: Table2
- *
- * Created on 1 février 2021, 14:35
- */
-
 #ifndef ROBOT_H
-#define	ROBOT_H
+#define ROBOT_H
+typedef struct robotStateBITS {
+union {
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
+struct {
+unsigned char taskEnCours;
+float vitesseGaucheConsigne;
+float vitesseGaucheCommandeCourante;
+float vitesseDroiteConsigne;
+float vitesseDroiteCommandeCourante;}
+;}
+;} ROBOT_STATE_BITS;
 
-
-
-
-#ifdef	__cplusplus
-}
-#endif
-
-#endif	/* ROBOT_H */
-
+extern volatile ROBOT_STATE_BITS robotState;
+#endif /* ROBOT_H */
