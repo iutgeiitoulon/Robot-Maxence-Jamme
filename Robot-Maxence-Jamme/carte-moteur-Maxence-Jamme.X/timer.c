@@ -2,6 +2,7 @@
 #include "timer.h"
 #include "IO.h"
 #include "PWM.h"
+#include "ADC.h"
 
 //Initialisation d?un timer 32 bits
 void InitTimer23(void) {
@@ -52,7 +53,7 @@ T1CONbits.TCKPS = 0b01; //Prescaler
 //01 = 1:8 prescale value
 //00 = 1:1 prescale value
 T1CONbits.TCS = 0; //clock source = internal clock
-float f = 346;
+float f = 346;  //100HZ
 PR1 = 40000000/(T1CONbits.TCKPS*f);
 //PR1 = 0x1388; 
 
@@ -67,4 +68,5 @@ void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void)
 IFS0bits.T1IF = 0;
 LED_BLANCHE = !LED_BLANCHE;
 PWMUpdateSpeed();
+ADC1StartConversionSequence();
 }
