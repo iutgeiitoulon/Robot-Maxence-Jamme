@@ -52,7 +52,7 @@ T1CONbits.TCKPS = 0b01; //Prescaler
 //01 = 1:8 prescale value
 //00 = 1:1 prescale value
 T1CONbits.TCS = 0; //clock source = internal clock
-float f = 3200;
+float f = 346;
 PR1 = 40000000/(T1CONbits.TCKPS*f);
 //PR1 = 0x1388; 
 
