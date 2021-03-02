@@ -95,98 +95,98 @@ MP_LINKER_FILE_OPTION=,--script=p33EP512GM306.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/main.o: main.c  .generated_files/e11712adbddbfdaadcdafe4698fd0165d0233162.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/main.o: main.c  .generated_files/e27e32fc1a0eab0d5ed6c43b474d24314c3d1ce1.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/ChipConfig.o: ChipConfig.c  .generated_files/52f8a23c88096149369ac97f79981fb91f9278ce.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/ChipConfig.o: ChipConfig.c  .generated_files/1081498cedc6ae1ca9bc6699de54dffe702976.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ChipConfig.o.d 
 	@${RM} ${OBJECTDIR}/ChipConfig.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ChipConfig.c  -o ${OBJECTDIR}/ChipConfig.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ChipConfig.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/IO.o: IO.c  .generated_files/6f9bd8dcc52183a89611c723190ef61fb9168ae8.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/IO.o: IO.c  .generated_files/ba9d4038f2d303192d0dfa7e423c5452da2e8ae3.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/IO.o.d 
 	@${RM} ${OBJECTDIR}/IO.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  IO.c  -o ${OBJECTDIR}/IO.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/IO.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/timer.o: timer.c  .generated_files/af5b9252aa2f7041b50fdfbdce93965bd31f14d4.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/timer.o: timer.c  .generated_files/d1d145ad76e6a93a661273352901e2175d5921a2.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/timer.o.d 
 	@${RM} ${OBJECTDIR}/timer.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  timer.c  -o ${OBJECTDIR}/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/Robot.o: Robot.c  .generated_files/9ed504f3dd3a448bcf59e763d9f838a85fe0321c.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/Robot.o: Robot.c  .generated_files/9d3758609a10052507ebe55b23f683e9ddadd405.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Robot.o.d 
 	@${RM} ${OBJECTDIR}/Robot.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Robot.c  -o ${OBJECTDIR}/Robot.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Robot.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/Toolbox.o: Toolbox.c  .generated_files/4c07ee0898e206c2bfac52f77b345b6a62382624.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/Toolbox.o: Toolbox.c  .generated_files/a7e4539f912c6a7028c0cfbf6a4044eca51df478.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Toolbox.o.d 
 	@${RM} ${OBJECTDIR}/Toolbox.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Toolbox.c  -o ${OBJECTDIR}/Toolbox.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Toolbox.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/PWM.o: PWM.c  .generated_files/ba13ce5d622f6bab54fd8844468e621cd1e3f979.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/PWM.o: PWM.c  .generated_files/90c98ea37b5f9dab2c1ef2d0f728648599dd4a65.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PWM.o.d 
 	@${RM} ${OBJECTDIR}/PWM.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  PWM.c  -o ${OBJECTDIR}/PWM.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/PWM.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/ADC.o: ADC.c  .generated_files/26ea00883f90312d3fd853ea2d467a491b3c83da.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/ADC.o: ADC.c  .generated_files/27ad666220c5c42c0463f10263f0628fde1e2cde.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ADC.o.d 
 	@${RM} ${OBJECTDIR}/ADC.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ADC.c  -o ${OBJECTDIR}/ADC.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ADC.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
 else
-${OBJECTDIR}/main.o: main.c  .generated_files/b3742995cf7fc0435e51219000857a6b55b0e840.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/main.o: main.c  .generated_files/5a3db035bac9afed36353392c241afbbe9ad489b.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/ChipConfig.o: ChipConfig.c  .generated_files/4d47142efe778a10cea0b86043590a500c4bdef2.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/ChipConfig.o: ChipConfig.c  .generated_files/c080e776e8b86f620f379f4001f8639d3627faf1.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ChipConfig.o.d 
 	@${RM} ${OBJECTDIR}/ChipConfig.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ChipConfig.c  -o ${OBJECTDIR}/ChipConfig.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ChipConfig.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/IO.o: IO.c  .generated_files/7caf2aea13c90019ced7c6049bb650466339e4bd.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/IO.o: IO.c  .generated_files/4532855205ff82c75708d4774976bccf35623812.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/IO.o.d 
 	@${RM} ${OBJECTDIR}/IO.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  IO.c  -o ${OBJECTDIR}/IO.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/IO.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/timer.o: timer.c  .generated_files/8c0419d6dfd6256ca67ad912cf5daeb90839da6b.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/timer.o: timer.c  .generated_files/ba246b56af35d2dfa3775cd4e4d03f9f887b3ce2.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/timer.o.d 
 	@${RM} ${OBJECTDIR}/timer.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  timer.c  -o ${OBJECTDIR}/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/Robot.o: Robot.c  .generated_files/864d5a7e4a503716005b802472c7d977352558a5.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/Robot.o: Robot.c  .generated_files/e194cbcc124c43c300a71247b012a32ee729292c.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Robot.o.d 
 	@${RM} ${OBJECTDIR}/Robot.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Robot.c  -o ${OBJECTDIR}/Robot.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Robot.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/Toolbox.o: Toolbox.c  .generated_files/75f6c0a7a2acd67917cddab65e4ebcc2ae50d81c.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/Toolbox.o: Toolbox.c  .generated_files/f33dafb9a5c7e70f47deba5a368784aa532b508e.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Toolbox.o.d 
 	@${RM} ${OBJECTDIR}/Toolbox.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Toolbox.c  -o ${OBJECTDIR}/Toolbox.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Toolbox.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/PWM.o: PWM.c  .generated_files/e4ad956f72a935d01cf6fd1a309b726366e71c2b.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/PWM.o: PWM.c  .generated_files/5099800efad3721ad55ee3f9882d1e667d00601f.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PWM.o.d 
 	@${RM} ${OBJECTDIR}/PWM.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  PWM.c  -o ${OBJECTDIR}/PWM.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/PWM.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off   
 	
-${OBJECTDIR}/ADC.o: ADC.c  .generated_files/45d255e0813edbff490db973bb8b5d8417e4a45.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
+${OBJECTDIR}/ADC.o: ADC.c  .generated_files/c596ea36ef0dbcadfc59fbffd4529b7cbcca76df.flag .generated_files/770bfaae211635eb1896a846f36edbb0fa131f01.flag
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ADC.o.d 
 	@${RM} ${OBJECTDIR}/ADC.o 

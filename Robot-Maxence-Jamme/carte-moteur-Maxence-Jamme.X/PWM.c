@@ -7,7 +7,7 @@
 
 #define PWMPER 40.0
 
-unsigned char acceleration = 5;
+unsigned char acceleration = 10;
 
 void InitPWM(void)
 {
