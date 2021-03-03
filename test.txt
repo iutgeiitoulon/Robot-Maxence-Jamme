@@ -1,0 +1,60 @@
+0 0 0 0 0   V
+0 0 0 0 |   V
+0 0 0 | 0   V
+0 0 0 | |   V
+0 0 | 0 0          X
+0 0 | 0 |   V
+0 0 | | 0   V
+0 0 | | |   V
+0 | 0 0 0   V
+0 | 0 0 |          X
+0 | 0 | 0          X
+0 | 0 | |          X
+0 | | 0 0   V
+0 | | 0 |          X
+0 | | | 0          X
+0 | | | |   V
+| 0 0 0 0   V
+| 0 0 0 |          X
+| 0 0 | 0          X
+| 0 0 | |          X
+| 0 | 0 0   V
+| 0 | 0 |          X
+| 0 | | 0          X
+| 0 | | |          X
+| | 0 0 0   V
+| | 0 0 |          X
+| | 0 | 0          X
+| | 0 | |          X
+| | | 0 0   V
+| | | 0 |          X
+| | | | 0   V
+| | | | |   V
+_________
+| | | | |
+0 | | | |
+| | | | 0
+0 0 | | |
+| | | 0 0
+0 0 0 | |
+| | 0 0 0
+0 0 0 0 |
+| 0 0 0 0
+0 0 0 | 0
+0 | 0 0 0
+0 0 | | 0
+0 | | 0 0
+0 0 | 0 |
+| 0 | 0 0
+0 0 0 0 0
+_________
+
+else if(robotState.distanceTelemetreExtremeGauche > dist_3 && robotState.distanceTelemetreGauche < dist_2 && robotState.distanceTelemetreCentre > dist_1 && robotState.distanceTelemetreDroit < dist_2 && robotState.distanceTelemetreExtremeDroit < dist_3){
+    //Capteurs : 0 | 0 | |  ->  Tourne vers la gauche    12
+}else if(robotState.distanceTelemetreExtremeGauche < dist_3 && robotState.distanceTelemetreGauche < dist_2 && robotState.distanceTelemetreCentre > dist_1 && robotState.distanceTelemetreDroit < dist_2 && robotState.distanceTelemetreExtremeDroit > dist_3){
+    //Capteurs : | | 0 | 0  ->  Tourne vers la droite    27
+}else if(robotState.distanceTelemetreExtremeGauche > dist_3 && robotState.distanceTelemetreGauche < dist_2 && robotState.distanceTelemetreCentre > dist_1 && robotState.distanceTelemetreDroit < dist_2 && robotState.distanceTelemetreExtremeDroit < dist_3){
+    //Capteurs : 0 | 0 0 |  ->  Tourne vers la gauche    12
+}else if(robotState.distanceTelemetreExtremeGauche < dist_3 && robotState.distanceTelemetreGauche < dist_2 && robotState.distanceTelemetreCentre > dist_1 && robotState.distanceTelemetreDroit < dist_2 && robotState.distanceTelemetreExtremeDroit > dist_3){
+    //Capteurs : |  0 | 0  ->  Tourne vers la droite    27
+}
