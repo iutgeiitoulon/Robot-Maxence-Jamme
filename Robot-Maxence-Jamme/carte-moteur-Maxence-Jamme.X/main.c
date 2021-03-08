@@ -158,7 +158,7 @@ int dist_2 = 25;
 int dist_3 = 5;
 int dist_4 = 25;
 int old_dir = 0;    //permet de savoir le dernier sens vers lequel a tourner le robot
-int flag = 1;
+int flag = 1 ;
 void SetNextRobotStateInAutomaticMode(){
     unsigned char positionObstacle = PAS_D_OBSTACLE;
 
