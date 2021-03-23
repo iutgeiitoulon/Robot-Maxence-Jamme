@@ -1,0 +1,14 @@
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\bin\Debug\Robot_Interface_JAMME_JUILLE.exe.config
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\bin\Debug\Robot_Interface_JAMME_JUILLE.exe
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\bin\Debug\Robot_Interface_JAMME_JUILLE.pdb
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.csprojAssemblyReference.cache
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\MainWindow.g.cs
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\App.g.cs
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE_MarkupCompile.cache
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE_MarkupCompile.lref
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\MainWindow.baml
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.g.resources
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.Properties.Resources.resources
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.csproj.GenerateResource.cache
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.exe
+C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.pdb

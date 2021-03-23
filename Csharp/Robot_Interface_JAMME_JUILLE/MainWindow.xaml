@@ -1,0 +1,33 @@
+﻿<Window x:Class="Robot_Interface_JAMME_JUILLE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Robot_Interface_JAMME_JUILLE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Emission" BorderBrush="White" Foreground="Black" OpacityMask="White" Background="#FFC9C9C9" Grid.Column="1" Grid.Row="1">
+            <TextBox x:Name="TextBoxEmission" HorizontalAlignment="Stretch" Margin="0" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="auto" Height="auto" Foreground="Black" AcceptsReturn="True" Background="{x:Null}" SelectionBrush="{x:Null}" KeyUp="TextBoxEmission_KeyUp"/>
+        </GroupBox>
+        <GroupBox Header="Réception" Background="#FFC9C9C9" Grid.Column="3" Grid.Row="1">
+            <TextBox x:Name="TextBoxRéception" HorizontalAlignment="Stretch" Width="auto" Height="auto" Margin="0" TextWrapping="Wrap" VerticalAlignment="Stretch" Background="{x:Null}" IsReadOnly="True"/>
+        </GroupBox>
+        <Button x:Name="buttonEnvoyer" Content="Envoyer" Grid.Column="1" Margin="85,0" Grid.Row="3" Width="100" Click="buttonEnvoyer_Click"/>
+    </Grid>
+</Window>
