@@ -12,3 +12,6 @@ C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robo
 C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.csproj.GenerateResource.cache
 C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.exe
 C:\GitHub\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.pdb
+C:\Github\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\bin\Debug\ExtendedSerialPort.dll
+C:\Github\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\bin\Debug\ExtendedSerialPort.pdb
+C:\Github\Robot-Maxence-Jamme\Csharp\Robot_Interface_JAMME_JUILLE\obj\Debug\Robot_Interface_JAMME_JUILLE.csproj.CopyComplete
