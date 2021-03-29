@@ -21,16 +21,21 @@ namespace Robot_Interface_JAMME_JUILLE
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    
+
     
     public partial class MainWindow : Window
     {
         ReliableSerialPort serialPort1;
+        AsyncCallback SerialPort1_DataRecived;
         DispatcherTimer timerAffichage;
+
+        int i;
+        Robot robot = new Robot();
         public MainWindow()
         {
+            
             InitializeComponent();
-            serialPort1 = new ReliableSerialPort("COM3", 115200, Parity.None, 8, StopBits.One);
+            serialPort1 = new ReliableSerialPort("COM5", 115200, Parity.None, 8, StopBits.One);
             serialPort1.DataReceived += SerialPort1_DataReceived;
             serialPort1.Open();
 
@@ -42,36 +47,75 @@ namespace Robot_Interface_JAMME_JUILLE
 
         private void TimerAffichage_Tick(object sender, EventArgs e)        // peut etre faut à voir
         {
-            throw new NotImplementedException();
+            /*if (robot.receivedText != "")
+            {
+                TextBoxReception.Text = TextBoxReception.Text + "Reçu=" + robot.receivedText;
+                robot.receivedText = "";
+            }*/
+            while (robot.byteListReceived.Count != 0)
+            {
+            byte byteReceived = robot.byteListReceived.Dequeue();
+            string blabla;
+            blabla = byteReceived.ToString();
+            TextBoxReception.Text += blabla;
+            }
+            
         }
 
-        string receivedText;
+
         private void SerialPort1_DataReceived(object sender, DataReceivedArgs e)
         {
-            TextBoxRéception.Text += receivedText;
+            //robot.receivedText += Encoding.UTF8.GetString(e.Data, 0, e.Data.Length);
+            for (i = 0; i < e.Data.Length; i++)
+            {
+                robot.byteListReceived.Enqueue(e.Data[i]);
+            }
+
         }
-        
+
         void SendMessage()
         {
-            string msg = TextBoxEmission.Text;
-            serialPort1.WriteLine(msg);
-            //TextBoxRéception.Text = TextBoxRéception.Text + "Reçu: " + msg;            
+            serialPort1.WriteLine(TextBoxEmission.Text);
             TextBoxEmission.Text = "";
         }
         private void buttonEnvoyer_Click(object sender, RoutedEventArgs e)
         {
-            string msg = TextBoxEmission.Text;
-            TextBoxRéception.Text = TextBoxRéception.Text + "Reçu: " + msg + "\n";
-            TextBoxEmission.Text = "";
+            SendMessage();
         }
 
         private void TextBoxEmission_KeyUp(object sender, KeyEventArgs e)
-        
+
         {
             if (e.Key == Key.Enter)
             {
                 SendMessage();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxReception.Text = "";
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            TextBoxReception.Background = Brushes.RoyalBlue;
+        }
+
+        private void Button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TextBoxReception.Background = Brushes.DarkRed;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+            byte[] byteList = new byte[20];
+            for (int i = 0; i < 20; i++)
+            {
+                byteList[i] = (byte)(2 * i);
+            }
+            serialPort1.Write(byteList, 0, byteList.Length);
         }
     }
 }

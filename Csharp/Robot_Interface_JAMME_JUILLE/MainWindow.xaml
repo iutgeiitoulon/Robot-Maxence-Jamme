@@ -6,28 +6,31 @@
         xmlns:local="clr-namespace:Robot_Interface_JAMME_JUILLE"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="30"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="30"/>
+      <ColumnDefinition/>
+      <ColumnDefinition Width="30"/>
+      <ColumnDefinition/>
+      <ColumnDefinition Width="30"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="30"/>
+      <RowDefinition/>
+      <RowDefinition Height="30"/>
+      <RowDefinition Height="30"/>
+      <RowDefinition Height="30"/>
+    </Grid.RowDefinitions>
 
-        <GroupBox Header="Emission" BorderBrush="White" Foreground="Black" OpacityMask="White" Background="#FFC9C9C9" Grid.Column="1" Grid.Row="1">
-            <TextBox x:Name="TextBoxEmission" HorizontalAlignment="Stretch" Margin="0" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="auto" Height="auto" Foreground="Black" AcceptsReturn="True" Background="{x:Null}" SelectionBrush="{x:Null}" KeyUp="TextBoxEmission_KeyUp"/>
-        </GroupBox>
-        <GroupBox Header="Réception" Background="#FFC9C9C9" Grid.Column="3" Grid.Row="1">
-            <TextBox x:Name="TextBoxRéception" HorizontalAlignment="Stretch" Width="auto" Height="auto" Margin="0" TextWrapping="Wrap" VerticalAlignment="Stretch" Background="{x:Null}" IsReadOnly="True"/>
-        </GroupBox>
-        <Button x:Name="buttonEnvoyer" Content="Envoyer" Grid.Column="1" Margin="85,0" Grid.Row="3" Width="100" Click="buttonEnvoyer_Click"/>
-    </Grid>
+    <GroupBox Header="Emission" BorderBrush="White" Foreground="Black" OpacityMask="White" Background="#FFC9C9C9" Grid.Column="1" Grid.Row="1">
+      <TextBox x:Name="TextBoxEmission" HorizontalAlignment="Stretch" Margin="0" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="auto" Height="auto" Foreground="Black" AcceptsReturn="True" Background="{x:Null}" SelectionBrush="{x:Null}" KeyUp="TextBoxEmission_KeyUp"/>
+    </GroupBox>
+    <GroupBox Header="Réception" Background="#FFC9C9C9" Grid.Column="3" Grid.Row="1">
+      <TextBox x:Name="TextBoxReception" HorizontalAlignment="Stretch" Width="auto" Height="auto" Margin="0" TextWrapping="Wrap" VerticalAlignment="Stretch" Background="{x:Null}" IsReadOnly="True"/>
+    </GroupBox>
+    <Button x:Name="buttonEnvoyer" Content="Envoyer" Grid.Column="1" Margin="85,0" Grid.Row="3" Width="100" Click="buttonEnvoyer_Click"/>
+    <Button Content="Clear" Grid.Column="3" Margin="125.5,0,125.5
+            ,0" Grid.Row="3" VerticalAlignment="Top" Height="30" Click="Button_Click" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+    <Button Content="Test" Grid.Column="3" Margin="125,0,126,0" Grid.Row="4" VerticalAlignment="Bottom" RenderTransformOrigin="0.526,-1.9" Height="30" Click="Button_Click_1"/>
+  </Grid>
 </Window>
