@@ -8,7 +8,7 @@
 #include "ADC.h"
 #include "Robot.h"
 #include "main.h"
-
+#include "UART.h"
 
 int main (void) {
     InitOscillator();
@@ -18,6 +18,7 @@ int main (void) {
     InitPWM();
     InitADC1();
     InitTimer4();
+    InitUART ();
     //PWMSetSpeed(-15, MOTEUR_DROIT); // 0 = Droite | 1 = Gauche |pourcentage detat bas de PWM 
     //PWMSetSpeed(-15, MOTEUR_GAUCHE);  //  + = avance | - = recule | (batterie face � nous)
     while(1){
@@ -35,9 +36,9 @@ int main (void) {
             volts = ((float) result[1])*3.3/4096*3.2;
             robotState.distanceTelemetreGauche = 34/volts-5;
             volts = ((float) result[0])*3.3/4096*3.2;
-            robotState.distanceTelemetreExtremeGauche= 34/volts-5;
-            
+            robotState.distanceTelemetreExtremeGauche= 34/volts-5;            
         }
+        
     }
 }
 
@@ -196,10 +197,10 @@ void SetNextRobotStateInAutomaticMode(){
     if(flag ==0){
         fonce = 0;
     }else{
-        fonce = fonce + 21;
+        fonce = fonce + 2;
         flag = 0;
         if(fonce>25){
-            fonce = 25;
+            fonce = 2;
         }
     }
     

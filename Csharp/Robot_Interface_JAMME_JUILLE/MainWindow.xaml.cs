@@ -35,7 +35,7 @@ namespace Robot_Interface_JAMME_JUILLE
         {
             
             InitializeComponent();
-            serialPort1 = new ReliableSerialPort("COM5", 115200, Parity.None, 8, StopBits.One);
+            serialPort1 = new ReliableSerialPort("COM3", 115200, Parity.None, 8, StopBits.One);
             serialPort1.DataReceived += SerialPort1_DataReceived;
             serialPort1.Open();
 
@@ -56,8 +56,8 @@ namespace Robot_Interface_JAMME_JUILLE
             {
             byte byteReceived = robot.byteListReceived.Dequeue();
             string blabla;
-            blabla = byteReceived.ToString();
-            TextBoxReception.Text += blabla;
+            blabla = byteReceived.ToString("X");
+            TextBoxReception.Text += "0x"+blabla+"\n";
             }
             
         }

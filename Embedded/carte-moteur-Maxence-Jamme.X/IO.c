@@ -1,22 +1,11 @@
-/*
-
- * File:   IO.c
-
- */
-
-
-
 #include <xc.h>
 
 #include "IO.h"
 
 
 
-void InitIO()
-
-{
-
-    // IMPORTANT : désactiver les entrées analogiques, sinon on perd les entrées numériques
+void InitIO(){
+// IMPORTANT : désactiver les entrées analogiques, sinon on perd les entrées numériques
 
     ANSELA = 0; // 0 desactive
 
@@ -32,10 +21,7 @@ void InitIO()
 
     ANSELG = 0;
 
-
-
     //********** Configuration des sorties : _TRISxx = 0 ********************************
-
     // LED
 
     _TRISC10 = 0;  // LED Orange
@@ -44,8 +30,6 @@ void InitIO()
 
     _TRISG7 = 0; // LED Bleue
 
-    
-
     // Moteurs 
     _TRISB14 = 0;
     _TRISB15 = 0; 
@@ -53,7 +37,7 @@ void InitIO()
     _TRISC7 = 0;
 
     //********** Configuration des entrées : _TRISxx = 1 ********************************   
-
+    _U1RXR = 24;
+    _RP36R = 0b00001;
     
-
 }
