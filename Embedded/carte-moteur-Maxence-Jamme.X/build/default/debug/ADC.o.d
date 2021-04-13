@@ -1,3 +1,3 @@
-build/default/production/ADC.o:  \
+build/default/debug/ADC.o:  \
 ADC.c  \
 adc.h 

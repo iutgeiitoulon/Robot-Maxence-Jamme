@@ -55,9 +55,10 @@ namespace Robot_Interface_JAMME_JUILLE
             while (robot.byteListReceived.Count != 0)
             {
             byte byteReceived = robot.byteListReceived.Dequeue();
-            string blabla;
-            blabla = byteReceived.ToString("X");
-            TextBoxReception.Text += "0x"+blabla+"\n";
+            //string blabla;
+                //blabla = byteReceived.ToString("X");
+                //blabla += ;
+                TextBoxReception.Text += "0x" + byteReceived.ToString("2X") + "(" + Convert.ToChar(byteReceived) + ")\n"; // "0x"+blabla+"";
             }
             
         }

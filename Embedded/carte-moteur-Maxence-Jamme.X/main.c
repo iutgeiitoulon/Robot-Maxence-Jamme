@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <xc.h>
+#include <libpic30.h> 
 #include "ChipConfig.h"
 #include "IO.h"
 #include "timer.h"
@@ -9,7 +10,8 @@
 #include "Robot.h"
 #include "main.h"
 #include "UART.h"
-
+#include "CB_TX1.h" 
+#include "CB_RX1.h" 
 int main (void) {
     InitOscillator();
     InitIO();
@@ -36,9 +38,19 @@ int main (void) {
             volts = ((float) result[1])*3.3/4096*3.2;
             robotState.distanceTelemetreGauche = 34/volts-5;
             volts = ((float) result[0])*3.3/4096*3.2;
-            robotState.distanceTelemetreExtremeGauche= 34/volts-5;            
+            robotState.distanceTelemetreExtremeGauche= 34/volts-5;
+            
         }
-        
+        /*SendMessage( (unsigned char *) "Bonjour" , 7 ) ;
+        fonction_led(LED_GD);
+        __delay32 (40000000);*/
+        int i;
+        for (i=0; i< CB_RX1_GetDataSize(); i++)
+        {
+            unsigned char c = CB_RX1_Get() ;
+            SendMessage(&c, 1) ;
+        }
+        __delay32(1000) ;
     }
 }
 
