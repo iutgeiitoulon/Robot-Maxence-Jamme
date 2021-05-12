@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Robot_Interface_JAMME_JUILLE
 {
@@ -30,6 +32,7 @@ namespace Robot_Interface_JAMME_JUILLE
         DispatcherTimer timerAffichage;
 
         int i;
+        int couleur;
         Robot robot = new Robot();
 
 
@@ -37,7 +40,7 @@ namespace Robot_Interface_JAMME_JUILLE
         {
             
             InitializeComponent();
-            serialPort1 = new ReliableSerialPort("COM7", 115200, Parity.None, 8, StopBits.One);
+            serialPort1 = new ReliableSerialPort("COM5", 115200, Parity.None, 8, StopBits.One);
             serialPort1.DataReceived += SerialPort1_DataReceived;
             serialPort1.Open();
 
@@ -45,7 +48,6 @@ namespace Robot_Interface_JAMME_JUILLE
             timerAffichage.Interval = new TimeSpan(0, 0, 0, 0, 100);
             timerAffichage.Tick += TimerAffichage_Tick;
             timerAffichage.Start();
-
         }
 
         private void TimerAffichage_Tick(object sender, EventArgs e)        // peut etre faut à voir
@@ -141,12 +143,29 @@ namespace Robot_Interface_JAMME_JUILLE
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
-            TextBoxReception.Background = Brushes.RoyalBlue;
+            switch (couleur)
+            {
+                case 0:
+                    TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FF0000");
+                    couleur++;
+                    break;
+                case 1:
+                    TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#00FF00");
+                    TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#00FFFF");
+                    couleur++;                
+                    break;
+                case 2:
+                    TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#0000FF");
+                    couleur = 0;
+                    break;
+
+            }
+            //TextBoxReception.Background = Brushes.RoyalBlue;
         }
 
         private void Button_MouseLeave(object sender, MouseEventArgs e)
         {
-            TextBoxReception.Background = Brushes.DarkRed;
+            TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -262,8 +281,8 @@ namespace Robot_Interface_JAMME_JUILLE
         void ProcessDecodedMessage(int msgFunction,int msgPayloadLength, byte[] msgPayload)
         {
             if (msgFunction == (int)FunctionId.text)
-            {
-                TextBoxReception.Text += msgFunction + "\n";
+            {                
+                TextBoxReception.Text += "0x" + msgFunction.ToString("X4") + "\n";
                 TextBoxReception.Text += msgPayloadLength + "\n";
                 for (i = 0; i< msgPayloadLength; i++)
                 {
@@ -271,6 +290,19 @@ namespace Robot_Interface_JAMME_JUILLE
                 }
                 TextBoxReception.Text += "\n";
             }
+        }
+
+        private void checkBox_Click(object sender, RoutedEventArgs e)
+        {
+            /*switch (checkBox1.ThreeState)
+            {
+                case ThreeState.Checked:
+                    TextBoxReception.Text += "NNNN\n";  
+                    break;
+                case ThreeState.Unchecked:
+                    TextBoxReception.Text = "";
+                    break;
+            }*/
         }
     }
 }
