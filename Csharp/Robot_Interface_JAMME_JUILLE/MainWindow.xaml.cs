@@ -33,6 +33,7 @@ namespace Robot_Interface_JAMME_JUILLE
 
         int i;
         int couleur;
+        int couleur_2 = 0;
         Robot robot = new Robot();
 
 
@@ -40,7 +41,7 @@ namespace Robot_Interface_JAMME_JUILLE
         {
             
             InitializeComponent();
-            serialPort1 = new ReliableSerialPort("COM5", 115200, Parity.None, 8, StopBits.One);
+            serialPort1 = new ReliableSerialPort("COM4", 115200, Parity.None, 8, StopBits.One);
             serialPort1.DataReceived += SerialPort1_DataReceived;
             serialPort1.Open();
 
@@ -143,29 +144,40 @@ namespace Robot_Interface_JAMME_JUILLE
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
-            switch (couleur)
+            if (couleur_2 == 1)
             {
-                case 0:
-                    TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FF0000");
-                    couleur++;
-                    break;
-                case 1:
-                    TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#00FF00");
-                    TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#00FFFF");
-                    couleur++;                
-                    break;
-                case 2:
-                    TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#0000FF");
-                    couleur = 0;
-                    break;
+                switch (couleur)
+                {
+                    case 0:
+                        TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FF0000");
+                        couleur++;
+                        break;
+                    case 1:
+                        TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#00FF00");
+                        couleur++;
+                        break;
+                    case 2:
+                        TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#0000FF");
+                        couleur = 0;
+                        break;
 
+                }
             }
+            
             //TextBoxReception.Background = Brushes.RoyalBlue;
         }
 
         private void Button_MouseLeave(object sender, MouseEventArgs e)
         {
-            TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
+            if (couleur_2 == 1)
+            {
+                TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#150057");
+            }
+            else
+            {
+                TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
+            }
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -207,30 +219,24 @@ namespace Robot_Interface_JAMME_JUILLE
             switch (rcvState)
             {
                 case StateReception.Waiting:
-                //…
                     if(c== 0xFE)
                     {
                         rcvState = StateReception.FunctionMSB;
-                        //TextBoxReception.Text += "snideezszf";
                     }
                     break;
                 case StateReception.FunctionMSB:
-                    //…
                     msgDecodedFunction = (c<<8);
                     rcvState = StateReception.FunctionLSB;
                     break;
                 case StateReception.FunctionLSB:
-                    //…
                     msgDecodedFunction += c;
                     rcvState = StateReception.PayloadLengthMSB;
                     break;
                 case StateReception.PayloadLengthMSB:
-                    //…
                     msgDecodedPayloadLength = (c<<8);
                     rcvState = StateReception.PayloadLengthLSB;
                     break;
                 case StateReception.PayloadLengthLSB:
-                    //…
                     msgDecodedPayloadLength += c;
                     if (msgDecodedPayloadLength > 1500)
                     {
@@ -245,11 +251,9 @@ namespace Robot_Interface_JAMME_JUILLE
                     if(msgDecodedPayloadIndex == msgDecodedPayloadLength)
                     {
                         rcvState = StateReception.CheckSum;
-                    }
-                //…
+                    }                
                 break;
                 case StateReception.CheckSum:
-                    //…
                     receivedChecksum = c;
                     calculatedChecksum = CalculateChecksum(msgDecodedFunction, msgDecodedPayloadLength, msgDecodedPayload);
                     if (calculatedChecksum == receivedChecksum){
@@ -261,7 +265,6 @@ namespace Robot_Interface_JAMME_JUILLE
                         TextBoxReception.Text += "snif";
                     }
                     rcvState = StateReception.Waiting;
-                    //…
                     break;
                 default:
                     rcvState = StateReception.Waiting;
@@ -294,15 +297,150 @@ namespace Robot_Interface_JAMME_JUILLE
 
         private void checkBox_Click(object sender, RoutedEventArgs e)
         {
-            /*switch (checkBox1.ThreeState)
+            byte[] msgPayload;
+            int msgFunction = (int)FunctionId.led;
+            if (checkBox.IsChecked == true)
             {
-                case ThreeState.Checked:
-                    TextBoxReception.Text += "NNNN\n";  
-                    break;
-                case ThreeState.Unchecked:
-                    TextBoxReception.Text = "";
-                    break;
-            }*/
+                //send on
+                TextTest.Text += "ON1";
+                msgPayload = Encoding.ASCII.GetBytes("1");
+            }
+            else
+            {
+                //send off
+                TextTest.Text += "OFF1";
+                msgPayload = Encoding.ASCII.GetBytes("2");
+            }
+            int msgPayloadLength = msgPayload.Length;
+            UartEncodeAndSendMessage(msgFunction, msgPayloadLength, msgPayload);
+        }
+
+        private void checkBox1_Click(object sender, RoutedEventArgs e)
+        {
+            int msgFunction = (int)FunctionId.led;
+            if (checkBox1.IsChecked == true)
+            {
+                //send on
+                TextTest.Text += "ON2";
+            }
+            else
+            {
+                //send off
+                TextTest.Text += "OFF2";
+            }
+        }
+
+        private void checkBox2_Click(object sender, RoutedEventArgs e)
+        {
+            int msgFunction = (int)FunctionId.led;
+            if (checkBox2.IsChecked == true)
+            {
+                //send on
+                TextTest.Text += "ON3";
+            }
+            else
+            {
+                //send off
+                TextTest.Text += "OFF3";
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //textBox3.Text = "100";
+        }
+
+        private void TextTest_MouseEnter(object sender, MouseEventArgs e)
+        {
+            TextTest.Text = "";
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if(couleur_2 == 0)
+            {
+                Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#4CFF37");
+
+                GB1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#FC37FF");
+                GB1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#B200FF");
+                TextBoxEmission.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#0B4DB2");
+
+                GB2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#A20007");
+                GB2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FF00AE");
+                TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#150057");
+
+                GB3.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#B0835D");
+                GB3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#00E8FF");
+                TextTest.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#0B2747");
+
+                BT1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#9C88D9");
+                BT2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#0D8A35");
+                BT3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#EA6B7D");
+                BT4.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FCB400");
+                BT5.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#BFFC00");
+                BT1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#B2A50B");
+                BT2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#2807BD");
+                BT3.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#079FBD");
+                BT4.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000C3B");
+                BT5.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#CE0D0D");
+
+                checkBox.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#43A08B");
+                checkBox1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFC322");
+                checkBox2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#120754");
+                checkBox.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#C914A3");
+                checkBox1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#50CCF4");
+                checkBox2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#344730");
+
+                textBox.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#2F4285");
+                textBox1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#901C02");
+                textBox2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#2BA612");
+                textBox3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#6A4D00");
+                textBox4.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#6712A6");
+
+                couleur_2 = 1;
+            }
+            else
+            {
+                Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+
+                GB1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                GB1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
+                TextBoxEmission.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
+
+                GB2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                GB2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
+                TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
+
+                GB3.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                GB3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
+                TextTest.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
+
+                BT1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#DDDDDD");
+                BT2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#DDDDDD");
+                BT3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#DDDDDD");
+                BT4.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#DDDDDD");
+                BT5.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#DDDDDD");
+                BT1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                BT2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                BT3.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                BT4.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                BT5.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+
+                checkBox.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                checkBox1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                checkBox2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                checkBox.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                checkBox1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                checkBox2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+
+                textBox.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                textBox1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                textBox2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                textBox3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                textBox4.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+
+                couleur_2 = 0;
+            }
         }
     }
 }

@@ -14,3 +14,9 @@ C:\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\bin\Debug\ExtendedSerial
 C:\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\obj\Debug\ExtendedSerialPort.csprojAssemblyReference.cache
 C:\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\obj\Debug\ExtendedSerialPort.dll
 C:\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\obj\Debug\ExtendedSerialPort.pdb
+D:\Doucuments\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\bin\Debug\ExtendedSerialPort.dll
+D:\Doucuments\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\bin\Debug\ExtendedSerialPort.pdb
+D:\Doucuments\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\obj\Debug\ExtendedSerialPort.csprojAssemblyReference.cache
+D:\Doucuments\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\obj\Debug\ExtendedSerialPort.csproj.CoreCompileInputs.cache
+D:\Doucuments\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\obj\Debug\ExtendedSerialPort.dll
+D:\Doucuments\GitHub\Robot-Maxence-Jamme\Csharp\ExtendedSerialPort\obj\Debug\ExtendedSerialPort.pdb
