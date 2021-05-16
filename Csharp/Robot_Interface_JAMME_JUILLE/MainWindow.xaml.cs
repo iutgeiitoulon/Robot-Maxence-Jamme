@@ -173,11 +173,10 @@ namespace Robot_Interface_JAMME_JUILLE
             {
                 TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#150057");
             }
-            else
+            else if (couleur_2 == 0)
             {
                 TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#c9c9c9");
             }
-            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -398,6 +397,52 @@ namespace Robot_Interface_JAMME_JUILLE
                 textBox4.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#6712A6");
 
                 couleur_2 = 1;
+            }
+            else if(couleur_2 == 1)
+            {
+                Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#3E3E42");
+
+                GB1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                GB1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#75757E");
+                TextBoxEmission.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#75757E");
+
+                GB2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                GB2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#75757E");
+                TextBoxReception.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#75757E");
+
+                GB3.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                GB3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#75757E");
+                TextTest.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#75757E");
+
+                BT1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#858585");
+                BT2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#858585");
+                BT3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#858585");
+                BT4.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#858585");
+                BT5.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#858585");
+                BT1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                BT2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                BT3.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                BT4.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                BT5.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+
+                groupBox.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                groupBox1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+                groupBox2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F1F1F1");
+
+                checkBox.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                checkBox1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                checkBox2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                checkBox.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#FF9B00");
+                checkBox1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+                checkBox2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#476AD1");
+
+                textBox.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#C8C8C8");
+                textBox1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#C8C8C8");
+                textBox2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#C8C8C8");
+                textBox3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#C8C8C8");
+                textBox4.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#C8C8C8");
+
+                couleur_2 = 2;
             }
             else
             {
