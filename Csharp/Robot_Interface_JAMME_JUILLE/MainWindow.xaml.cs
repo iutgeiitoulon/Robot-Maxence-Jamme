@@ -41,7 +41,7 @@ namespace Robot_Interface_JAMME_JUILLE
         {
             
             InitializeComponent();
-            serialPort1 = new ReliableSerialPort("COM4", 115200, Parity.None, 8, StopBits.One);
+            serialPort1 = new ReliableSerialPort("COM5", 115200, Parity.None, 8, StopBits.One);
             serialPort1.DataReceived += SerialPort1_DataReceived;
             serialPort1.Open();
 
@@ -284,7 +284,7 @@ namespace Robot_Interface_JAMME_JUILLE
         {
             if (msgFunction == (int)FunctionId.text)
             {                
-                TextBoxReception.Text += "0x" + msgFunction.ToString("X4") + "\n";
+                TextBoxReception.Text += "0x" + msgFunction.ToString("X4 ") + "\n";
                 TextBoxReception.Text += msgPayloadLength + "\n";
                 for (i = 0; i< msgPayloadLength; i++)
                 {
@@ -444,7 +444,7 @@ namespace Robot_Interface_JAMME_JUILLE
 
                 couleur_2 = 2;
             }
-            else
+            else if (couleur_2 == 2)
             {
                 Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
 
@@ -471,6 +471,10 @@ namespace Robot_Interface_JAMME_JUILLE
                 BT4.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
                 BT5.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
 
+                groupBox.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                groupBox1.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+                groupBox2.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
+
                 checkBox.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
                 checkBox1.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
                 checkBox2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
@@ -483,6 +487,8 @@ namespace Robot_Interface_JAMME_JUILLE
                 textBox2.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
                 textBox3.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
                 textBox4.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
+
+
 
                 couleur_2 = 0;
             }
