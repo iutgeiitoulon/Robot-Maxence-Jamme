@@ -41,7 +41,7 @@ namespace Robot_Interface_JAMME_JUILLE
         {
             
             InitializeComponent();
-            serialPort1 = new ReliableSerialPort("COM5", 115200, Parity.None, 8, StopBits.One);
+            serialPort1 = new ReliableSerialPort("COM6", 115200, Parity.None, 8, StopBits.One);
             serialPort1.DataReceived += SerialPort1_DataReceived;
             serialPort1.Open();
 
@@ -65,7 +65,7 @@ namespace Robot_Interface_JAMME_JUILLE
                 //string blabla;
                 //blabla = byteReceived.ToString("X");
                 //blabla += ;
-                //TextBoxReception.Text += "0x" + byteReceived.ToString("2X") + "(" + Convert.ToChar(byteReceived) + ")\n"; // "0x"+blabla+"";
+                //TextBoxReception.Text += Convert.ToChar(byteReceived) + "\n"; // "0x"+blabla+"";
                 //TextBoxReception.Text += byteReceived+"\n";
                 //TextBoxReception.Text += Convert.ToChar(byteReceived);
             }
@@ -218,9 +218,12 @@ namespace Robot_Interface_JAMME_JUILLE
             switch (rcvState)
             {
                 case StateReception.Waiting:
-                    if(c== 0xFE)
+                    if(c == 0xFE)
                     {
                         rcvState = StateReception.FunctionMSB;
+                        msgDecodedPayloadLength = 0;
+                        msgDecodedFunction = 0;
+                        msgDecodedPayloadIndex = 0;
                     }
                     break;
                 case StateReception.FunctionMSB:
@@ -241,7 +244,7 @@ namespace Robot_Interface_JAMME_JUILLE
                     {
                         rcvState = StateReception.Waiting;
                     }
-                    rcvState = StateReception.Payload;
+                    rcvState = StateReception.Payload;                    
                     msgDecodedPayload = new byte[msgDecodedPayloadLength];
                     break;
                 case StateReception.Payload:
@@ -284,7 +287,7 @@ namespace Robot_Interface_JAMME_JUILLE
         {
             if (msgFunction == (int)FunctionId.text)
             {                
-                TextBoxReception.Text += "0x" + msgFunction.ToString("X4 ") + "\n";
+                TextBoxReception.Text += "0x" + msgFunction.ToString("X4") + "\n";
                 TextBoxReception.Text += msgPayloadLength + "\n";
                 for (i = 0; i< msgPayloadLength; i++)
                 {
